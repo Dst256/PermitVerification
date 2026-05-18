@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permit Verification</title>
+    <style>
+        :root { --bg-color: #f5f7fa; --card-bg: #ffffff; --text-main: #101828; --text-secondary: #78909c; --success-green: #2ecc71; --border-light: #eceff1; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: var(--card-bg); width: 90%; max-width: 400px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; text-align: center; padding-bottom: 20px; }
+        .status-header { padding: 40px 20px 20px; }
+        .check-circle { width: 100px; height: 100px; border: 8px solid var(--success-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+        .check-circle::after { content: ''; display: block; width: 25px; height: 50px; border: solid var(--success-green); border-width: 0 8px 8px 0; transform: rotate(45deg); margin-top: -10px; }
+        h1 { color: var(--text-main); font-size: 24px; margin: 10px 0 5px; font-weight: 700; }
+        .subtitle { color: var(--text-secondary); font-size: 16px; margin-bottom: 20px; }
+        .info-list { border-top: 1.5px solid var(--border-light); text-align: left; padding: 20px 25px; }
+        .info-item { margin-bottom: 15px; font-size: 14px; color: #546e7a; font-weight: 600; }
+        .matched-badge { color: #1b5e20; font-weight: 800; font-size: 16px; margin-top: 25px; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="status-header">
+        <div class="check-circle"></div>
+        <h1>Permit is Valid</h1>
+        <div class="subtitle">Successfully verified</div>
+    </div>
+    <div class="info-list">
+        <div class="info-item">Business Name: <span>{{ permit['business_name'] }}</span></div>
+        <div class="info-item">Business No: <span>{{ permit['business_no'] }}</span></div>
+        <div class="info-item">Receipt No: <span>{{ permit['receipt_no'] }}</span></div>
+        <div class="info-item">Amount Paid: <span>Ksh {{ permit['amount_paid'] }}</span></div>
+        <div class="info-item">Permit Year: <span>{{ permit['permit_year'] }}</span></div>
+        <div class="info-item">Expiry Date: <span>{{ permit['expiry_date'] }}</span></div>
+        <div class="info-item">Issued By: <span>{{ permit['issued_by'] }}</span></div>
+        <div class="info-item">Permit Type: <span>{{ permit['permit_type'] }}</span></div>
+        <div class="info-item">Date Issued: <span>{{ permit['date_issued'] }}</span></div>
+        <div class="matched-badge">{{ permit['status'] }}</div>
+    </div>
+</div>
+</body>
+</html>
